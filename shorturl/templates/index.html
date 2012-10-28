@@ -1,14 +1,14 @@
-{% include 'base.html' %}
+{% extends 'base.html' %}
 
 {% block js %}
 <script src="/static/js/addurl.js"></script>
 {% endblock %}
 
 {% block content %}
-    <div class="row-fluid">
-        <div id="add-form-div" class="well">
+    <div id="add-form-container">
+        <div id="add-form-div" class="input-append">
             <form class="form-inline" id="add-form">
-                <input name="{{ form.url.name }}" id="add-url-text" type="text" class="input-xxlarge" placeholder="URL">
+                <input name="{{ form.url.name }}" id="add-url-text" class="input-xxlarge" type="text" placeholder="URL">
                 <button type="submit" class="btn btn-primary">Short!</button>
             </form>
         </div>
