@@ -47,4 +47,6 @@ def follow_url(request, url):
         main_host = '.'.join(request.get_host().split('.')[1:])
         return HttpResponseRedirect('http://%s' % main_host)
     else:
+        url_obj.clicks += 1
+        url_obj.save()
         return HttpResponseRedirect(url_obj.source_url)
