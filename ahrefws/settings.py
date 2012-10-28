@@ -1,10 +1,20 @@
 import os
-import ahrefws.local_settings as local
+try:
+    import ahrefws.local_settings as local
+except ImportError:
+    import dj_database_url
+    DEBUG = False
+    ADMINS = (
+        ('BPS', 'bps@dzen.eu'),
+    )
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+else:
+    DEBUG = local.DEBUG
+    ADMINS = local.ADMINS
+    DATABASES = local.DATABASES
 
-DEBUG = local.DEBUG
+
 TEMPLATE_DEBUG = DEBUG
-
-ADMINS = local.ADMINS
 
 MANAGERS = ADMINS
 
@@ -25,7 +35,6 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
-DOMAIN = local.DOMAIN
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
