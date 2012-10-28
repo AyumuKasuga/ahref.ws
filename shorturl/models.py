@@ -21,7 +21,6 @@ class ShortUrl(models.Model):
 
     def save(self, *args, **kwargs):
         last_object = ShortUrl.objects.all().aggregate(Max('short_url_int'))
-        next_short_url_int = last_object['short_url_int__max'] or 0 + 1
-        self.short_url_int = next_short_url_int
-        self.short_url = int_to_36(next_short_url_int)
+        self.short_url_int = (last_object['short_url_int__max'] or 0) + 1
+        self.short_url = int_to_36(self.short_url_int)
         super(ShortUrl, self).save(*args, **kwargs)
