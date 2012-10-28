@@ -21,8 +21,6 @@ MANAGERS = ADMINS
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_PATH = os.path.abspath(os.path.join(ROOT_PATH, '..'))
 
-DATABASES = local.DATABASES
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
