@@ -1,0 +1,4 @@
+*.pyc
+ahrefws/local_settings.py
+.DS_Store
+.idea

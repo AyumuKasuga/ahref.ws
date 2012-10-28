@@ -1,0 +1,16 @@
+{% include 'base.html' %}
+
+{% block js %}
+<script src="/static/js/addurl.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div id="add-form-div" class="well">
+            <form class="form-inline" id="add-form">
+                <input name="{{ form.url.name }}" id="add-url-text" type="text" class="input-xxlarge" placeholder="URL">
+                <button type="submit" class="btn btn-primary">Short!</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
