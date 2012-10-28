@@ -14,7 +14,8 @@ global_domain = Site.objects.get(pk=SITE_ID).domain
 
 def main_page(request):
     host_parts = request.get_host().split('.')
-    if len(host_parts) == 3:
+    global_domain_parts = global_domain.split('.')
+    if len(host_parts) - len(global_domain_parts) == 1:
         return follow_url(request, host_parts[0])
     return render_to_response('templates/index.html', {'form': AddUrlForm})
 
