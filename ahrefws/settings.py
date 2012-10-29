@@ -123,7 +123,6 @@ INSTALLED_APPS = (
     'raven.contrib.django',
     'south',
     'shorturl',
-
 )
 
 # A sample logging configuration. The only tangible logging
