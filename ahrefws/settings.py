@@ -8,6 +8,7 @@ except ImportError:
         ('BPS', 'bps@dzen.eu'),
     )
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+    SENTRY_DSN = os.getenv('SENTRY_DSN', '')
 else:
     DEBUG = local.DEBUG
     ADMINS = local.ADMINS
@@ -119,10 +120,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'raven.contrib.django',
     'south',
     'shorturl',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
 )
 
 # A sample logging configuration. The only tangible logging
