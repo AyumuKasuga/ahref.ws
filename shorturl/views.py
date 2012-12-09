@@ -28,6 +28,9 @@ def get_short_link(long_url):
     if parsed_clean_url.netloc.find(DOMAIN_NAME) != -1:
         return {'status': 'fail', 'error': 'recursive url'}
 
+    if long_url[-1] == '/':
+        long_url = long_url[:-1]
+
     url_obj, created = ShortUrl.objects.get_or_create(source_url = long_url)
     short_link = "http://%s.%s" % (url_obj.short_url, DOMAIN_NAME)
     alt_short_link = 'http://%s%s' % (DOMAIN_NAME, reverse('shorturl.views.follow_url', args=(url_obj.short_url,)))
