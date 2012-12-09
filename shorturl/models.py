@@ -5,7 +5,7 @@ from int_to_36 import int_to_36
 
 
 class ShortUrl(models.Model):
-    source_url = models.URLField('source url', max_length=8192)
+    source_url = models.URLField('source url', max_length=2000)
     short_url_int = models.PositiveIntegerField('short url int', default=0, blank=True, null=True, unique=True)
     short_url = models.CharField('short url', max_length=128, blank=True, null=True, unique=True)
     created = models.DateTimeField('created', auto_now_add=True, blank=True, null=True, editable=False, default=0)
