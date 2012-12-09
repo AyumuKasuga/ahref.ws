@@ -42,12 +42,13 @@ def get_short_link(long_url):
 
 def add_url(request):
     if request.method == 'POST':
-        src_url = request.POST.get('url')
+        print request.POST
+        src_url = request.POST.get('url', '')
         if src_url != '':
             ret = get_short_link(src_url)
         else:
             ret = {'status': 'fail', 'error': 'empty url'}
-        return HttpResponse(dumps(ret))
+        return HttpResponse(dumps(ret), mimetype='application/json')
 
 
 def follow_url(url):
