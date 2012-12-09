@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div id="header">
+        <span id="letter-href">Simple API</span><span id="letter-dot"> :)</span>
+    </div>
+    <div id="sub-header">Examples</div>
+    <div id="manual-container">
+    <div id="api-description">I used <a href="https://github.com/jkbr/httpie">httpie</a> for this manual</div>
+    <div id="manual">
+        <pre>
+
+=== Add new url ===
+
+http -f POST http://ahref.ws/add-url/ url=http://www.youtube.com/watch?v=9bZkp7q19f0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json
+Date: Sun, 09 Dec 2012 19:14:59 GMT
+Server: nginx
+Transfer-Encoding: chunked
+
+{
+    "alt_short_url": "http://ahref.ws/u/s/",
+    "short_url": "http://s.ahref.ws",
+    "status": "ok"
+}
+
+
+
+--- If url already exists ---
+
+http -f POST http://ahref.ws/add-url/ url=http://www.youtube.com/watch?v=9bZkp7q19f0
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json
+Date: Sun, 09 Dec 2012 19:15:33 GMT
+Server: nginx
+Transfer-Encoding: chunked
+
+{
+    "alt_short_url": "http://ahref.ws/u/s/",
+    "clicks": 0,
+    "created": "2012-12-09T19:14:59.356611+00:00",
+    "short_url": "http://s.ahref.ws",
+    "status": "ok"
+}
+
+
+
+=== errors ===
+
+http -f POST http://ahref.ws/add-url/ url=ftp://123
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json
+Date: Sun, 09 Dec 2012 19:16:28 GMT
+Server: nginx
+Transfer-Encoding: chunked
+
+{
+    "error": "bad scheme url",
+    "status": "fail"
+}
+
+------
+
+http -f POST http://ahref.ws/add-url/ url=http://u.ahref.ws
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json
+Date: Sun, 09 Dec 2012 19:17:34 GMT
+Server: nginx
+Transfer-Encoding: chunked
+
+{
+    "error": "recursive url",
+    "status": "fail"
+}
+
+
+
+=== get full url :) ===
+
+http -f GET http://s.ahref.ws
+HTTP/1.1 302 FOUND
+Age: 0
+Connection: keep-alive
+Content-Length: 0
+Content-Type: text/html; charset=utf-8
+Date: Sun, 09 Dec 2012 19:18:14 GMT
+Location: http://www.youtube.com/watch?v=9bZkp7q19f0
+Server: nginx
+Via: 1.1 varnish
+X-Varnish: 623452145
+
+Look at "Location" parameter.
+
+        </pre>
+    </div>
+    </div>
+{% endblock %}

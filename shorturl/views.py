@@ -42,7 +42,6 @@ def get_short_link(long_url):
 
 def add_url(request):
     if request.method == 'POST':
-        print request.POST
         src_url = request.POST.get('url', '')
         if src_url != '':
             ret = get_short_link(src_url)
@@ -60,3 +59,7 @@ def follow_url(url):
         url_obj.clicks += 1
         url_obj.save()
         return HttpResponseRedirect(url_obj.source_url)
+
+
+def api_help_page(request):
+    return render_to_response('templates/api_help.html', {})
