@@ -1,5 +1,52 @@
-html, body {height: 100%;}
-
-#add-form-div {text-align: center; margin-top: 100px;}
-.fill {min-height: 100%; height: 100%;}
+html, body {height: 100%; font-family: Arial, Helvetica, sans-serif;}
+#add-form-div {text-align: center; margin-top: 10px;}
 #add-form {width: 100%;}
+#button-container {margin-top: 50px;}
+#header {font-size: 54px; text-align: center; text-shadow: 2px 2px 2px lightgray;}
+#letter-a {color: #696969; margin-right: 10px;}
+#letter-dot {color: #b22222;}
+#letter-ws {color: #696969;}
+
+#add-url-text {
+    width: 70%;
+    height: 50px;
+    font-size: 30px;
+    padding: 0 7px;
+    border-radius: 5px;
+    border: none;
+    box-shadow:inset 0 0 5px #808080;
+}
+
+#add-url-text:focus {
+    outline:none;
+    box-shadow:inset 0 0 10px #696969;
+}
+
+#submit-button {
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 2px 2px rgba(0,0,0,.3);
+    box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+
+    color: #fef4e9;
+    background: #04C;
+    background: -webkit-gradient(linear, left top, left bottom, from(#08C), to(#04C));
+    background: -moz-linear-gradient(top,  #08C,  #04C);
+    background: linear-gradient(top, #08C, #04C);
+}
+
+#submit-button:hover {
+    background: #0088CC;
+    *background: #0088CC;
+}
+
+#submit-button:active {
+    background: #003bb3;
+    *background: #003bb3;
+}

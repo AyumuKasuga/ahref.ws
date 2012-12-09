@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block content %}
+    <div id="header">
+        <span id="letter-a">A</span><span id="letter-href">HREF</span><span id="letter-dot">.</span><span id="letter-ws">WS</span>
+    </div>
     <div id="add-form-container">
-        <div id="add-form-div" class="input-append">
-            <form class="form-inline" id="add-form">
-                <input name="{{ form.url.name }}" id="add-url-text" class="input-xxlarge" type="text" spellcheck="false" placeholder="URL">
-                <button type="submit" class="btn btn-primary">Short!</button>
+        <div id="add-form-div">
+            <form id="add-form">
+                <div id="input-container">
+                    <input name="{{ form.url.name }}" id="add-url-text" type="text" spellcheck="false" autocomplete="false" placeholder="URL">
+                </div>
+                <div id="button-container">
+                    <button id="submit-button" type="submit">Short!</button>
+                </div>
             </form>
         </div>
     </div>

@@ -16,6 +16,18 @@ def main_page(request):
     return render_to_response('templates/index.html', {'form': AddUrlForm})
 
 
+def get_short_link(long_url):
+    if long_url.find('http://') != -1 and long_url.find('https://') != -1:
+        long_url = 'http://%s' % long_url
+    parsed_url = urlparse.urlparse(long_url)
+    if parsed_url.netloc.find(request.get_host()) != -1:
+        ret = {'status': 'fail', 'error': 'recursive url'}
+
+
+def get_long_link(url):
+    pass
+
+
 def add_url(request):
     if request.method == 'POST':
         form = AddUrlForm(request.POST)
