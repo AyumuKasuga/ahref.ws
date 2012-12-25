@@ -48,7 +48,8 @@ def add_url(request):
         else:
             ret = {'status': 'fail', 'error': 'empty url'}
         return HttpResponse(dumps(ret), mimetype='application/json')
-
+    else:
+        return HttpResponse('use POST for this url', mimetype='text/plain')
 
 def follow_url(url):
     try:
