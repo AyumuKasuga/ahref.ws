@@ -51,6 +51,7 @@ def add_url(request):
     else:
         return HttpResponse('use POST for this url', mimetype='text/plain')
 
+
 def follow_url(url):
     try:
         url_obj = ShortUrl.objects.get(short_url = url)
@@ -60,6 +61,10 @@ def follow_url(url):
         url_obj.clicks += 1
         url_obj.save()
         return HttpResponseRedirect(url_obj.source_url)
+
+
+def follow_url_alt(request, url):
+    return follow_url(url)
 
 
 def api_help_page(request):
