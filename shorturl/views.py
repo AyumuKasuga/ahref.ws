@@ -33,7 +33,7 @@ def get_short_link(long_url):
 
     url_obj, created = ShortUrl.objects.get_or_create(source_url = long_url)
     short_link = "http://%s.%s" % (url_obj.short_url, DOMAIN_NAME)
-    alt_short_link = 'http://%s%s' % (DOMAIN_NAME, reverse('shorturl.views.follow_url', args=(url_obj.short_url,)))
+    alt_short_link = 'http://%s%s' % (DOMAIN_NAME, reverse('shorturl.views.follow_url_alt', args=(url_obj.short_url,)))
     ret = {'status': 'ok', 'short_url': short_link, 'alt_short_url': alt_short_link}
     if not created:
         ret.update({'created': url_obj.created.isoformat(), 'clicks': url_obj.clicks})
