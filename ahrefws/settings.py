@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'raven.contrib.django',
     'south',
+    'gunicorn',
     'shorturl',
 )
 
